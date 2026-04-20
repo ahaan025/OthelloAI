@@ -1,0 +1,9 @@
+# Othello (Reversi)
+
+A full implementation of the classic board game Othello, built with a modular, object-oriented design and an AI opponent powered by the MiniMax algorithm.
+
+🧠 Key Features
+Fully playable Othello game
+Human vs Human and Human vs AI modes
+Rule enforcement (valid moves, flipping mechanics, turn logic)
+AI opponent with strategic decision-making (MiniMax search)
