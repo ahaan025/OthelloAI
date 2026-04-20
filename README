@@ -1,0 +1,56 @@
+Overview-
+In this project, I created the classic strategy game Othello. It features a PaneOrganizer class
+which sets up the layout of the game, a SetupGame class which handles game initialization,
+a Board class which manages the 8x8 game grid and game rules, and a Referee class which
+controls turn-taking and game flow. The Player interface enables polymorphism, allowing
+both HumanPlayer and ComputerPlayer to be treated uniformly. The ComputerPlayer uses the
+MiniMax recursive algorithm with three levels of intelligence to calculate optimal moves.
+
+
+Design Choices-
+
+1.POLYMORPHISM  PLAYER INTERFACE:
+   Both HumanPlayer and ComputerPlayer implement the Player interface, allowing
+   the Referee to treat all players uniformly without knowing their type. The
+   Referee uses player.isHuman() to determine when to highlight moves and enable
+   clicks.
+
+2.BOARD COPY CONSTRUCTOR:
+   The Board class has two constructors:
+   -Regular constructor: Creates visual board with JavaFX components
+   -Copy constructor: Creates logical-only board for MiniMax.
+
+   This allows the ComputerPlayer to test hypothetical moves without affecting
+   the visual board. The copy constructor only copies logical state,
+   not JavaFX objects which would be unnecessary.
+
+3. SMART SQUARE WRAPPER (OthelloSquare):
+   OthelloSquare encapsulates both visual (Rectangle, Circle) and logical (color)
+   state. It has two constructors matching the Board's pattern - one for visual
+   squares and one for logical-only squares used in MiniMax.
+
+4. REFEREE AND TIMELINE PATTERN:
+   FOr delay between computer moves. The pattern is:
+   - Timeline's KeyFrame calls handleComputerMove()
+   - handleComputerMove() FIRST stops the Timeline (handout)
+
+6. MINIMAX IMPLEMENTATION:
+   The getBestMove() method is a single recursive method that handles all three
+   intelligence levels, as required by the handout. It uses the provided board
+   weights from the HANdnout to evaluate board positions.
+
+7. POTENTIAL DESIGN ISSUE - The makeMove(row, col) method uses row/col for HumanPlayer
+    but ComputerPlayer ignores these parameters since
+   it calculates moves using MiniMax. I kept the interface consistent
+   for polymorphism.
+
+Known Bugs - NONE
+
+Extra-Credit
+1. Keyboard Shortcuts - 'A' for apply settings, 'R' for reset, 'Q' for quitting the application.
+2. SRC Considerations (Self)- Chose colours for borders, highlighting positions
+and board keeping colour contrast scores in mind
+----- All colours received a minimum AA rating for contrast.
+3. Early hand-in
+
+Hours - 30 hours
