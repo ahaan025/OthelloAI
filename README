@@ -1,4 +1,4 @@
-# Othello (Reversi)
+#Othello
 
 A full implementation of the classic board game Othello, built with a modular, object-oriented design and an AI opponent powered by the MiniMax algorithm.
 
